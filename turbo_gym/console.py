@@ -11,5 +11,9 @@ from models.booking import Booking
 # import repositories.lesson_repository as lesson_repository
 # import repositories.booking_repository as booking_repository
 
+# delete all tables
+
+
+
 # pre-population/seeding goes here:
 

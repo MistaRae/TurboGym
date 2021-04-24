@@ -1,11 +1,11 @@
 class Lesson:
 
-    def __init__(self, class_name, class_type, difficulty, duration, capacity, time_slot, id=None)
+    def __init__(self, class_name, class_type, difficulty, duration, capacity, time_slot, id=None):
         self.class_name = class_name
         self.class_type = class_type
         self.difficulty = difficulty
         self.duration = duration
-        self.capacity = dutation
+        self.capacity = capacity
         self.time_slot = time_slot
         self.id = id 
 

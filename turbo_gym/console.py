@@ -109,8 +109,8 @@ member_repository.save(jill_rettie)
 #         self.id = id 
 
 beg_spin_class = Lesson("Spin Class", "cardio", "beginner", 55, 10, slot_10)
-lesson_repository.save(adv_spin_class)
+lesson_repository.save(beg_spin_class)
 int_spin_class = Lesson("Spin Class", "cardio", "intermediate", 55, 10, slot_8)
-lesson_repository.save(adv_spin_class)
+lesson_repository.save(int_spin_class)
 adv_spin_class = Lesson("Spin Class", "cardio", "advanced", 55, 10, slot_7)
 lesson_repository.save(adv_spin_class)

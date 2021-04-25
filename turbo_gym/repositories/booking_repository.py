@@ -24,7 +24,7 @@ def select(id):
     values = [id]
     result = run_sql(sql, values)
 
-    if booking is not None:
+    if result is not None:
         booking = Booking(result['member_id'], result['lesson_id'], result['id'])
     return booking
     
@@ -33,9 +33,9 @@ def select(id):
 def select_all():
     bookings = []
     sql = "SELECT * FROM bookings WHERE"
-    result = run_sql(sql)
+    results = run_sql(sql)
 
-    for row in bookings:
+    for row in results:
         booking = Booking(row['member_id'], row['lesson_id'], row['id'])
         bookings.append(booking)
     return bookings

@@ -22,7 +22,7 @@ CREATE TABLE slots (
 
 CREATE TABLE lessons (
     id SERIAL PRIMARY KEY, 
-    name VARCHAR(255),
+    class_name VARCHAR(255),
     class_type VARCHAR(255),
     difficulty VARCHAR(255),
     duration INT,

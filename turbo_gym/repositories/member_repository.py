@@ -15,7 +15,7 @@ from models.member import Member
 # CREATE
 def save(member):
     sql = "INSERT INTO members (first_name, last_name, age, sex, turbo_membership, active) VALUES (%s, %s, %s, %s, %s, %s) RETURNING id"
-    values = [member.first_name, member.Last_name, member.age, member.sex, member.turbo_membership, member.active]
+    values = [member.first_name, member.last_name, member.age, member.sex, member.turbo_membership, member.active]
     results = run_sql(sql, values)
     member.id = results[0]['id']
     return member

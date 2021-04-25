@@ -1,10 +1,21 @@
 from db.run_sql import run_sql
 from models.lesson import Lesson 
+from models.slot import Slot
 
+# class Lesson:
+
+#     def __init__(self, class_name, class_type, difficulty, duration, capacity, slot_id = None, id=None):
+#         self.class_name = class_name
+#         self.class_type = class_type
+#         self.difficulty = difficulty
+#         self.duration = duration
+#         self.capacity = capacity
+#         self.slot_id = slot_id #time slot number references slot primary key
+#         self.id = id 
 
 # CREATE TABLE lessons (
 #     id SERIAL PRIMARY KEY, 
-#     name VARCHAR(255),
+#     class_name VARCHAR(255),
 #     class_type VARCHAR(255),
 #     difficulty VARCHAR(255),
 #     duration INT,
@@ -15,10 +26,10 @@ from models.lesson import Lesson
 # CREATE
 def save(lesson):
     sql = "INSERT INTO lessons (class_name, class_type, difficulty, duration, capacity, slot_id) VALUES (%s, %s, %s, %s, %s, %s) RETURNING id"
-    values = [lesson.class_name, lesson.class_type, lesson.difficulty, lesson.duration, lesson.capacity, lesson.slot.slot_id]
+    values = [lesson.class_name, lesson.class_type, lesson.difficulty, lesson.duration, lesson.capacity, lesson.slot_id.id]
     results = run_sql(sql, values)
-    lesson.id = results[0]['id']
-    return lesson
+    id = results[0]['id']
+    lesson.id = id
 
 # READ
 def select(id):

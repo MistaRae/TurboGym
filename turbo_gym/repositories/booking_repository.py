@@ -11,7 +11,7 @@ from models.booking import Booking
 
 # CREATE 
 def save(booking):
-    sql = "INSERT INTO bookings (member_id, lesson_id) VALUES (%s, %s) returning id"
+    sql = "INSERT INTO bookings (member_id, lesson_id) VALUES (%s, %s) RETURNING id"
     values = [booking.member.id, booking.lesson.id]
     results = run_sql(sql, values)
     booking.id = results[0]['id']

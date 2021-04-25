@@ -17,7 +17,9 @@ import repositories.lesson_repository as lesson_repository
 
 # delete all tables
 
-
+slot_repository.delete_all()
+member_repository.delete_all()
+lesson_repository.delete_all()
 
 # pre-population/seeding goes here:
 
@@ -90,27 +92,27 @@ slot_repository.save(slot_24)
 
 mark_rae = Member('Mark', 'Rae', 33, "male", True, True)
 member_repository.save(mark_rae)
-sarah_burns = Member('Mark', 'Rae', 28, "female", False, True)
+sarah_burns = Member('Sarah', 'Burns', 28, "female", False, True)
 member_repository.save(sarah_burns)
-chris_rettie = Member('Mark', 'Rae', 35, "male", True, True)
+chris_rettie = Member('Chris', 'Rettie', 35, "male", True, True)
 member_repository.save(chris_rettie)
 jill_rettie = Member('jill', 'Rettie', 36, "female", False, True)
 member_repository.save(jill_rettie)
 
 # class Lesson:
 
-#     def __init__(self, class_name, class_type, difficulty, duration, capacity, time_slot, id=None):
+#     def __init__(self, class_name, class_type, difficulty, duration, capacity, slot_id = None, id=None):
 #         self.class_name = class_name
 #         self.class_type = class_type
 #         self.difficulty = difficulty
 #         self.duration = duration
 #         self.capacity = capacity
-#         self.time_slot = time_slot
+#         self.slot_id = slot_id #time slot number references slot primary key
 #         self.id = id 
 
 beg_spin_class = Lesson("Spin Class", "cardio", "beginner", 55, 10, slot_10)
 lesson_repository.save(beg_spin_class)
-int_spin_class = Lesson("Spin Class", "cardio", "intermediate", 55, 10, slot_8)
+int_spin_class = Lesson("Spin Class", "cardio", "intermediate", 55, 10, slot_9)
 lesson_repository.save(int_spin_class)
-adv_spin_class = Lesson("Spin Class", "cardio", "advanced", 55, 10, slot_7)
+adv_spin_class = Lesson("Spin Class", "cardio", "advanced", 55, 10, slot_11)
 lesson_repository.save(adv_spin_class)

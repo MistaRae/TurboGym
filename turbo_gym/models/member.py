@@ -9,6 +9,10 @@ class Member:
         self.active = active
         self.id = id
 
+    def full_name(self, member):
+        full_name = self.first_name + self.last_name
+        return full_name
+
     def create_member(self):
         pass
 

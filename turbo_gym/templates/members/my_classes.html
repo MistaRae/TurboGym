@@ -13,12 +13,12 @@
         <a href="/members/{{member.id}}/edit">UPDATE YOUR DETAILS</a>
     </li>
 </ul>
-<h2>upcoming classes</h2>
+<h2>YOUR CLASSES</h2>
 
 <ul>
     {% for lesson in lessons %}
     <li>
-        <a href="/members/my-classes/{{lesson.id}}">{{lesson.class_name}}</a>
+        <a href="/members/my-classes/{{lesson.id}}">{{lesson.class_name}} {{lesson.slot_id.time_stamp}}</a>
     </li>
 
     {% endfor %}

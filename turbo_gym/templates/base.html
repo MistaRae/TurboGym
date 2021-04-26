@@ -5,13 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 
     <title>TurboGym</title>
 </head>
 <body>
     <header>
-        <nav>
+        <nav class="nav-bar">
             <ul>
                 <li>
                     <a href="/">HOME</a>
@@ -27,11 +27,27 @@
                 </li>
             </ul>
         </nav>
-    </header>
+ </header>
+<hr class= "gold_stripe">
+<hr class= "purple_stripe"> 
+<hr class= "gold_stripe">
+<hr class= "purple_stripe"> 
+<hr class= "purple_stripe"> 
 
     {% block content %}
 
     {% endblock%}
+
+<hr class= "purple_stripe"> 
+<hr class= "purple_stripe"> 
+<hr class= "gold_stripe">
+<hr class= "purple_stripe"> 
+<hr class= "gold_stripe">
+    <footer>
+        <div> <p> SOCIALS           </p></div>
+        <div> <p> © TurboGym 2021   </p> </div>
+        <div> <p> CONTACT           </p>  </div>
+    </footer>
     
 </body>
 </html>

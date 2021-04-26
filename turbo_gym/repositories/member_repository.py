@@ -49,17 +49,6 @@ def update(member):
     values = [member.first_name, member.Last_name, member.age, member.sex, member.turbo_membership, member.active, member.id]
     run_sql(sql, values)
 
-# DELETE
-
-def delete(id):
-    sql = "DELETE * FROM members WHERE id = %s"
-    values = [id]
-    run_sql(sql, values)
-
-def delete_all():
-    sql = "DELETE FROM members"
-    run_sql(sql)
-
 def lessons(member):
     bookings = []
     sql = "SELECT lessons.* FROM lessons INNER JOIN bookings ON bookings.lesson_id = lessons.id WHERE member_id = %s"
@@ -76,3 +65,14 @@ def quit(member):
     sql = "UPDATE members SET (active) to (%s) WHERE id = %s"
     values = (member.active, member.id)
     run_sql(sql, values)
+
+    # DELETE
+
+def delete(id):
+    sql = "DELETE * FROM members WHERE id = %s"
+    values = [id]
+    run_sql(sql, values)
+
+def delete_all():
+    sql = "DELETE FROM members"
+    run_sql(sql)

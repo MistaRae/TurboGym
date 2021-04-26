@@ -1,0 +1,78 @@
+body, a:link {
+    margin: 0;
+    font-family: Helvetica, sans-serif;
+    text-decoration: none;
+}
+
+body > header {
+    background-color: purple;
+    
+}
+
+body > header > nav > ul {
+    padding-top: 10px;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+} 
+
+body > header > nav > ul > li > a {
+    list-style: none;
+    color: gold;
+}
+
+body > header > nav > ul > li > a:hover {
+    color:honeydew;
+    text-decoration: none;
+}
+
+body > div {
+    size;
+}
+
+body > h1 {
+    padding: 5%;    
+    margin: 0;
+    color: gold;
+    background-color: purple;
+}
+
+footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0;
+    padding: 5%;
+    background-color: purple;
+    color:  gold;
+}
+
+body > footer > div {    
+    margin: 0px;
+    display: flex;
+    flex-direction: row;
+}
+
+
+
+.gold_stripe {
+    margin: 0px;
+    height: 10px;
+    background-color: gold;
+    border-style: none;
+}
+
+.purple_stripe {
+    margin:0px;
+    height: 10px;
+    background-color: purple;
+    border:0
+    
+}
+
+body > section {
+    display:flex;
+    flex-direction: row;
+}

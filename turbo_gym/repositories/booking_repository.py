@@ -22,7 +22,7 @@ def select(id):
     booking = None
     sql = "SELECT * FROM bookings WHERE id = %s"
     values = [id]
-    result = run_sql(sql, values)
+    result = run_sql(sql, values)[0]
 
     if result is not None:
         booking = Booking(result['member_id'], result['lesson_id'], result['id'])
@@ -32,7 +32,7 @@ def select(id):
 # READ
 def select_all():
     bookings = []
-    sql = "SELECT * FROM bookings WHERE"
+    sql = "SELECT * FROM bookings"
     results = run_sql(sql)
 
     for row in results:

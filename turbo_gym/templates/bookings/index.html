@@ -4,8 +4,12 @@
 
 <h1>BOOKINGS</h1>
 
+{% for booking in bookings %}
+
     <section>
-        <p>{{booking.member.</p>
+        <p>{{booking.member.full_name()}} is booked onto {{booking.lesson.class_name}}</p>
     </section>
+
+{% endfor %}
 
 {% endblock %}

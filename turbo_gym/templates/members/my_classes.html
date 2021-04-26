@@ -1,0 +1,18 @@
+{% extends  "base.html" %}
+
+{% block content %}
+
+<h1>{{member.first_name}}</h1>
+
+<h2>upcoming classes</h2>
+
+<ul>
+    {% for lesson in lessons %}
+    <li>
+        <a href="/members/my-classes/{{lesson.id}}">{{lesson.class_name}}</a>
+    </li>
+
+    {% endfor %}
+</ul>
+
+{% endblock %}

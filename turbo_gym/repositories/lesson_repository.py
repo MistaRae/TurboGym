@@ -36,10 +36,10 @@ def select(id):
     lesson = None
     sql = "SELECT * FROM lessons WHERE id = %s"
     values = [id]
-    result = run_sql(sql, values)
+    result = run_sql(sql, values)[0]
 
     if result is not None:
-        lesson = Lesson(result['class_name'], result['class_type'], result['difficulty'], result['duration'], result['capacity'], result['time_slot'],result['id'])
+        lesson = Lesson(result['class_name'], result['class_type'], result['difficulty'], result['duration'], result['capacity'], result['slot_id'], result['id'])
     return lesson
 
 def select_all():

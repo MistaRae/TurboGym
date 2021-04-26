@@ -8,10 +8,35 @@
     <ul>
         <li>
             <a href="/lessons/{{lesson.id}}"> 
-                <p>{{lesson.class_name}} // {{lesson.class_type}} // {{lesson.difficulty}}
+                <p>{{lesson.class_name}} // {{lesson.class_type}} // {{lesson.difficulty}} // {% for slot in slots %}{% if slot.id == lesson.slot_id %}{{slot.time_stamp}}{% endif %}{% endfor %}
             </a>    
         </li>
     </ul>
 {% endfor %}
+    <div>
+        <form action="/classes" method = 'post'> NEW CLASS 
+            <label for="class_name">NAME</label>
+            <input type="text" name="class_name">
+            <label for="class_type">CLASS TYPE</label>
+            <input type="text" name="class_type">
+            <label for="difficulty"> DIFFICULTY</label>
+            <input type="text" name="difficulty">
+            <label for="duration"> DURATION</label>
+            <input type="text" name="duration">
+            <label for="capacity">CAPACITY</label>
+            <input type="text" name = "capacity">
 
+            <label for="time_slot">TIME SLOT</label>
+            <select name="slot_id">
+                {% for slot in slots %}
+                    <option value="{{slot.id}}">{{slot.time_stamp}}</option>
+                {% endfor %}
+            </select>
+
+            <button type="submit">CREATE CLASS</button>
+        </form>
+    </div>
+
+
+  
 {% endblock %}

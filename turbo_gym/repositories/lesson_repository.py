@@ -26,7 +26,7 @@ from models.slot import Slot
 # CREATE
 def save(lesson):
     sql = "INSERT INTO lessons (class_name, class_type, difficulty, duration, capacity, slot_id) VALUES (%s, %s, %s, %s, %s, %s) RETURNING id"
-    values = [lesson.class_name, lesson.class_type, lesson.difficulty, lesson.duration, lesson.capacity, lesson.slot_id.id]
+    values = [lesson.class_name, lesson.class_type, lesson.difficulty, lesson.duration, lesson.capacity, lesson.slot_id]
     results = run_sql(sql, values)
     id = results[0]['id']
     lesson.id = id
@@ -51,6 +51,7 @@ def select_all():
         lesson = Lesson(row['class_name'], row['class_type'], row['difficulty'], row['duration'], row['capacity'], row['slot_id'], row['id'])
         lessons.append(lesson)
     return lessons 
+
 
 
 # UPDATE 

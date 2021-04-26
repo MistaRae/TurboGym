@@ -9,7 +9,7 @@ class Member:
         self.active = active
         self.id = id
 
-    def full_name(self, member):
+    def full_name(self):
         full_name = self.first_name + " " + self.last_name
         return full_name
 

@@ -1,0 +1,18 @@
+{% extends  "base.html" %}
+
+{% block content %}
+
+<h1>{{lesson.class_name}}</h1>
+
+<h2>{{lesson.class_type}}</h2>
+
+<ul>
+    <li>
+        <form action="lessons/{{lesson.id}}/"method=POST>
+            <input type="submit" value="BOOK CLASS">
+        </form>
+    </li>
+  
+</ul>
+
+{% endblock %}

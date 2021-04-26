@@ -1,5 +1,6 @@
 from db.run_sql import run_sql
 from models.booking import Booking
+from models.slot import Slot
 
 
 
@@ -39,6 +40,27 @@ def select_all():
         booking = Booking(row['member_id'], row['lesson_id'], row['id'])
         bookings.append(booking)
     return bookings
+
+def lesson_time(lesson):
+    result = None
+    sql = "SELECT slots.* FROM slots INNER JOIN lessons ON lessons.slots_id = slots.id WHERE id = %s"
+    values = [lesson.id]
+    result = run_sql(sql, values)
+    if result is not None:
+        slot = Slot(slot_num, time_stamp, turbo_slot,)
+
+
+
+# def lessons(member):
+#     bookings = []
+#     sql = "SELECT lessons.* FROM lessons INNER JOIN bookings ON bookings.lesson_id = lessons.id WHERE member_id = %s"
+#     values = [member.id]
+#     results = run_sql(sql,values)
+
+#     for row in results:
+#         lesson = Lesson(row['class_name'], row['class_type'], row['difficulty'], row['duration'], row['capacity'], row['slot_id'], row['id'])
+#         bookings.append(lesson)
+#     return bookings
 
 #UPDATE
 def update(booking):

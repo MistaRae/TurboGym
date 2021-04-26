@@ -46,7 +46,7 @@ def select_all():
 # UPDATE
 def update(member):
     sql = "UPDATE members SET (first_name, last_name, age, sex, turbo_membership, active) = (%s, %s, %s, %s, %s, %s) WHERE id = %s"
-    values = [member.first_name, member.Last_name, member.age, member.sex, member.turbo_membership, member.active, member.id]
+    values = [member.first_name, member.last_name, member.age, member.sex, member.turbo_membership, member.active, member.id]
     run_sql(sql, values)
 
 def lessons(member):

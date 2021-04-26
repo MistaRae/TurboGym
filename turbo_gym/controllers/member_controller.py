@@ -60,12 +60,12 @@ def edit_member(id):
 # UPDATE
 # processes form for amended/updated user details and updates database entry
 @members_blueprint.route('/members/<id>', methods=['POST'])
-def update_member():
+def update_member(id):
     first_name = request.form['first_name']
     last_name = request.form['last_name']
     age = request.form['age']
     sex = request.form['sex']
-    member = Member(first_name, last_name, age, sex)
+    member = Member(first_name, last_name, age, sex, id=id)
     member_repository.update(member)
     return redirect('/members')
 
@@ -74,7 +74,8 @@ def update_member():
 @members_blueprint.route('/members/<id>/quit', methods=['POST'])
 def deactivate_member(id):
     member = member_repository.select(id)
-    member_repository.quit(member)
+    member.deactivate_membership()
+    member_repository.update(member)
     return redirect('/members')
 
 

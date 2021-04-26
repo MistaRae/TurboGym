@@ -8,6 +8,7 @@ from models.booking import Booking
 import repositories.slot_repository as slot_repository
 import repositories.member_repository as member_repository
 import repositories.lesson_repository as lesson_repository
+import repositories.booking_repository as booking_repository
 
 # repo imports 
 # import repositories.slot_repository as slot_repository
@@ -116,3 +117,6 @@ int_spin_class = Lesson("Spin Class", "cardio", "intermediate", 55, 10, slot_9)
 lesson_repository.save(int_spin_class)
 adv_spin_class = Lesson("Spin Class", "cardio", "advanced", 55, 10, slot_11)
 lesson_repository.save(adv_spin_class)
+
+test_booking = Booking(mark_rae, beg_spin_class)
+booking_repository.save(test_booking)

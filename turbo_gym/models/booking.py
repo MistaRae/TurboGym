@@ -5,6 +5,6 @@ class Booking:
         self.lesson = lesson
         self.id = id
 
-
-    def add_member_to_lesson(self, member, lesson):
-        pass
+# THIS IS A REPO FUNCTION 
+    # def add_member_to_lesson(self, member, lesson):
+    #     pass

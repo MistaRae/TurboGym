@@ -11,11 +11,14 @@ class Lesson:
 
 # do i need an empty list to store the lesson occupants? 
 
-    def create_lesson(self):
-        pass
 
-    def display_lesson(self):
-        pass
+# THESE ARE ALL REPO FUNCTIONS 
 
-    def display_all_lessons(self):
-        pass
+    # def create_lesson(self):
+    #     pass
+
+    # def display_lesson(self):
+    #     pass
+
+    # def display_all_lessons(self):
+    #     pass

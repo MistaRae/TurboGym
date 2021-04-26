@@ -2,8 +2,20 @@
 
 {% block content %}
 
+<h1>OUR CLASSES</h1>
+
 {% for lesson in lessons %}
-    <p>lesson.class_name</p>
+
+<section>
+    <ul>
+        <li>
+            <a href="/lessons/{{lesson.id}}"> 
+                <p>{{lesson.class_name}} // {{lesson.class_type}} // {{lesson.difficulty}}
+            </a>    
+        </li>
+   
+    </ul>
+
 {% endfor %}
 
 {% endblock %}

@@ -70,3 +70,9 @@ def lessons(member):
         lesson = Lesson(row['class_name'], row['class_type'], row['difficulty'], row['duration'], row['capacity'], row['slot_id'], row['id'])
         bookings.append(lesson)
     return bookings
+
+def quit(member):
+    member.deactivate_membership()
+    sql = "UPDATE members SET (active) to (%s) WHERE id = %s"
+    values = (member.active, member.id)
+    run_sql(sql, values)

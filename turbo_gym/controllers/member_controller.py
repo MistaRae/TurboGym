@@ -9,25 +9,35 @@ import repositories.lesson_repository as lesson_repository
 members_blueprint = Blueprint("members", __name__)
 
 # INDEX
+# shows all gym members
 @members_blueprint.route("/members")
 def members():
     members = member_repository.select_all()
     return render_template("members/index.html", members = members)
 
+# shows all lessons that gym member has signed up to
 @members_blueprint.route('/members/<id>')
 def my_classes(id):
     member = member_repository.select(id)
     lessons = member_repository.lessons(member)
     return render_template('members/my_classes.html', member = member, lessons = lessons)
 
+# shows all information on the selected lesson
 @members_blueprint.route('/members/my-classes/<lesson_id>')
 def class_info(lesson_id):
     lesson = lesson_repository.select(lesson_id)
     return render_template('/members/class_info.html', lesson = lesson)
 
 # NEW
+# gets form for new member 
+@members_blueprint.route('/members/new', methods=['GET'])
+def new_member():
+    members = member_repository.select_all()
+    return render_template('members/new.html', members = members)
+
 # CREATE
-@members_blueprint.route('/members/new', methods=['POST'])
+# processes form for new user on submission 
+@members_blueprint.route('/members', methods=['POST'])
 def create_member():
     first_name = request.form['first_name']
     last_name = request.form['last_name']
@@ -35,16 +45,38 @@ def create_member():
     sex = request.form['sex']
     member = Member(first_name, last_name, age, sex)
     member_repository.save(member)
-    return render_template('members/new.html', member = member)
+    return redirect('/members')
 
 
 # EDIT 
+#  gets form for amending/updating user details
+@members_blueprint.route('/members/<id>/edit')
+def edit_member(id):
+    member = member_repository.select(id)
+    lessons = member_repository.lessons(member)
+    return render_template('members/update.html', member = member, lessons = lessons)
+    
+
 # UPDATE
-
-
-# DELETE 
-@members_blueprint.route('/members/my-classes/<lesson_id>/delete', methods=['POST'])
-def cancel_booking(lesson_id):
-    lesson_repository.delete(lesson_id)
+# processes form for amended/updated user details and updates database entry
+@members_blueprint.route('/members/<id>', methods=['POST'])
+def update_member():
+    first_name = request.form['first_name']
+    last_name = request.form['last_name']
+    age = request.form['age']
+    sex = request.form['sex']
+    member = Member(first_name, last_name, age, sex)
+    member_repository.update(member)
     return redirect('/members')
+
+# QUIT GYM
+# sets member's membership to inactive (active = False) and updates the entry in the database
+@members_blueprint.route('/members/<id>/quit', methods=['POST'])
+def deactivate_member(id):
+    member = member_repository.select(id)
+    member_repository.quit(member)
+    return redirect('/members')
+
+
+
 

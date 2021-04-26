@@ -3,7 +3,16 @@
 {% block content %}
 
 <h1>{{member.first_name}}</h1>
-
+<ul>
+    <li>
+        <form action="/members/{{member.id}}/quit" method='post'>
+        <button type="submit">QUIT THE GYM</button>
+        </form>
+    </li>
+    <li>
+        <a href="/members/{{member.id}}/edit">UPDATE YOUR DETAILS</a>
+    </li>
+</ul>
 <h2>upcoming classes</h2>
 
 <ul>

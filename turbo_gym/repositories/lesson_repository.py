@@ -48,7 +48,7 @@ def select_all():
     results = run_sql(sql)
 
     for row in results:
-        lesson = Lesson(row['class_name'], row['class_type'], row['difficulty'], row['duration'], row['capacity'], row['time_slot'], row['id'])
+        lesson = Lesson(row['class_name'], row['class_type'], row['difficulty'], row['duration'], row['capacity'], row['slot_id'], row['id'])
         lessons.append(lesson)
     return lessons 
 

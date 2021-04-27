@@ -31,6 +31,8 @@ def select_all():
         lessons.append(lesson)
     return lessons 
 
+#find member
+
 # UPDATE 
 
 def update(lesson):

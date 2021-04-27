@@ -1,5 +1,29 @@
 {% extends  "base.html" %}
 
 {% block content %}
+<h1>//\\ BOOK MEMBER ONTO CLASS //\\</h1>
+<h2> {{lesson.class_name}} </h2>
+<div >
+    <form action="/bookings/new" method = 'post' class= "form_container">MEMBER DETAILS 
 
+        <label for="">SELECT USER</label>
+        <select name="member_id">
+            {% for member in members %}
+                <option value="{{member.id}}">{{member.first_name}} {{member.last_name}}</option>
+            {% endfor %}
+        </select>
+        <button type="submit">ADD MEMBER TO CLASS</button>
+
+
+        <!-- <label for="first_name">First Name</label>
+        <input type="text" name="first_name", id = "first_name">
+        <label for="last_name">Last Name</label>
+        <input type="text" name="last_name", id = "last_name">
+        <label for="age">Age</label>
+        <input type="text" name="age", id = "age">
+        <label for="first_name">Sex</label>
+        <input type="text" name="sex", id = "sex">
+        <button type="submit">ADD MEMBER</button> -->
+    </form>
+</div>
 {% endblock %}

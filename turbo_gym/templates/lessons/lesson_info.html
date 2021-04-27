@@ -2,13 +2,13 @@
 
 {% block content %}
 
-<h1>{{lesson.class_name}}</h1>
+<h1>//\\ {{lesson.class_name}} //\\ {{lesson.class_type}}</h1>
 
-<h2>{{lesson.class_type}}</h2>
+<h2><a href="/classes/{{lesson.id}}/update">UPDATE A CLASS</a></h2>
 
 <ul>
     <li>
-        <form action="lessons/{{lesson.id}}/"method=POST>
+        <form action="bookings/{{lesson.id}}/"method=POST>
             <input type="submit" value="BOOK CLASS">
         </form>
     </li>

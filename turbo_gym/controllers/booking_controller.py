@@ -12,6 +12,10 @@ def bookings():
     bookings = booking_repository.select_all()
     return render_template("bookings/index.html", bookings = bookings)
 # NEW
+@bookings_blueprint.route('/booking/<lesson>/<member>')
+def new_booking(lesson, member):
+    pass
+
 # CREATE
 # EDIT 
 # UPDATE

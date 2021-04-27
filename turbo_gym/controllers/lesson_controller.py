@@ -17,7 +17,7 @@ def lessons():
 @lessons_blueprint.route('/classes/<id>')
 def select_lesson(id):
     lesson = lesson_repository.select(id)
-    return render_template("lessons/index.html", lesson = lesson)
+    return render_template("lessons/lesson_info.html", lesson = lesson)
 
 # NEW
 
@@ -42,7 +42,7 @@ def add_lesson():
 
 # EDIT 
 #gets form
-@lessons_blueprint.route("/classes/<lesson_id>/update")
+@lessons_blueprint.route("/classes/<id>/edit")
 def edit_lesson(id):
     lesson = lesson_repository.select(id)
     return render_template('lesson/update.html', lesson = lesson)

@@ -3,6 +3,8 @@
 {% block content %}
 
 <h1> //\\ {{member.first_name}} {{member.last_name}} //\\</h1>
+<h2> <a href="/members/{{member.id}}/edit">UPDATE MEMBER DETAILS</a> </h2>
+
 <ul>
     <li>
         <form action="/members/{{member.id}}/turbo" method='post'>
@@ -24,11 +26,9 @@
         <button type="submit">REACTIVATE MEMBERSHIP</button>
         </form>
     </li>
-    <li>
-        <a href="/members/{{member.id}}/edit">UPDATE YOUR DETAILS</a>
-    </li>
 </ul>
-<h2> MEMBER'S CLASSES</h2>
+
+<h3> MEMBER'S CLASSES</h3>
 
 <ul>
     {% for lesson in lessons %}

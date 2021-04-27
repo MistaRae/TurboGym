@@ -17,8 +17,14 @@ def lessons():
 @lessons_blueprint.route('/classes/<id>')
 def select_lesson(id):
     lesson = lesson_repository.select(id)
-    return render_template("lessons/index.html")
+    return render_template("lessons/index.html", lesson = lesson)
+
 # NEW
+
+@lessons_blueprint.route('/classes/new')
+def new_lesson():
+    slots = slot_repository.select_all()
+    return render_template('lessons/new.html', slots = slots)
 
 @lessons_blueprint.route('/classes', methods=['POST'])
 def add_lesson():
@@ -32,18 +38,30 @@ def add_lesson():
     lesson_repository.save(lesson)
     return redirect('/classes') 
 
-
-
-    #   <!-- def __init__(self, class_name, class_type, difficulty, duration, capacity, slot_id = None, id=None):
-    # self.class_name = class_name
-    # self.class_type = class_type
-    # self.difficulty = difficulty
-    # self.duration = duration
-    # self.capacity = capacity
-    # self.slot_id = slot_id #time slot number references slot primary key
-    # self.id = id  -->
-
 # CREATE
+
 # EDIT 
+#gets form
+@lessons_blueprint.route("/classes/<lesson_id>/update")
+def edit_lesson(id):
+    lesson = lesson_repository.select(id)
+    return render_template('lesson/update.html', lesson = lesson)
+
 # UPDATE
+
+#posts form, actions databse
+@lessons_blueprint.route('/classes/<id>', methods=['POST'])
+def update_lesson(id):
+    class_name = request.form['class_name']
+    class_type = request.form['class_type']
+    difficulty = request.form['difficulty']
+    duration = request.form['duration']
+    capacity = request.form['capacity']
+    lesson = Lesson(class_name, class_type, difficulty, duration, capacity, id=id)
+    lesson_repository.update(lesson)
+    return redirect('/classes')
+
 # DELETE 
+
+
+

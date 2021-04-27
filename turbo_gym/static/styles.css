@@ -39,18 +39,64 @@ body > div > img {
     border: 0;
     }
 
-body > div {
- 
-}
 
 body > h1 {
-    padding: 5%;    
+    /* display: flex;
+    flex-direction: row;
+    justify-content: space-around; */
+    padding-top: 1%;
+    padding-left: 5%; 
+    padding-bottom: 1%;   
     margin: 0;
     color: gold;
     background-color: purple;
 }
 
+body > h1 > a {
+    color: gold;
+}
 
+body > h1 > a:hover {
+    color:honeydew
+}
+body > h2 {
+    /* display: flex;
+    flex-direction: row;
+    justify-content: space-around; */
+    padding-left: 5%;    
+    padding-bottom: 1%;  
+    margin: 0;
+    color: gold;
+    background-color: purple;
+}
+
+body > h2 > a {
+    color: gold;
+}
+
+body > h2 > a:hover {
+    color:honeydew
+}
+
+body > h3 {
+    /* display: flex;
+    flex-direction: row;
+    justify-content: space-around; */
+    padding-left: 5%;    
+    padding-bottom: 1%;  
+    padding-top: 1%;
+    margin: 0;
+    color: gold;
+    background-color: purple;
+}
+
+body > h3 > a {
+    color: gold;
+}
+
+body > h3 > a:hover {
+    color:honeydew
+}
 
 body > section > ul > li {
     list-style: none;

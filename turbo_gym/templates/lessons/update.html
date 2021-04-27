@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>//\\ EDIT CLASS //\\</h1>
+<h2>EDIT YOUR CLASS DETAILS BELOW</h2>
+<form action="/classes/{{lesson.id}}/edit" method='post'>
+    <label for="class_name">CLASS NAME</label>
+    <input type="text" name="class_name", id = "class_name">
+    <label for="class_type">CLASS TYPE</label>
+    <input type="text" name="class_type", id = "class_type">
+    <label for="difficulty">DIFFICULTY</label>
+    <input type="text" name="difficulty", id = "difficulty">
+    <label for="duration">DURATION</label>
+    <input type="text" name="duration", id = "duration">
+    <button type="submit">UPDATE YOUR DETAILS</button>
+</form>
+
+{% endblock %}

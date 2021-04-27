@@ -2,9 +2,16 @@
 
 {% block content %}
 
-<h1>{{lesson.class_name}}</h1>
+<h1>
+{{lesson.class_name}} 
+{% for slot in slots %}
+{% if slot.id == lesson.slot_id %}
+{{slot.time_stamp}}
+{% endif %}
+{% endfor %}
+</h1>
 
-<h2>{{lesson.class_type}}</h2>
+<h2>{{lesson.class_type}} // {{lesson.difficulty}} // {{lesson.duration}}min </h2>
 
 <ul>
     <li>

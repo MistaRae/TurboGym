@@ -3,12 +3,12 @@
 {% block content %}
 
 <h1>MEMBERS</h1>
-    <h2>
-        <a href="/members/new">JOIN TURBO GYM</a>
-    </h2>
+    <h3>
+        <a href="/members/new">ADD NEW MEMBER</a>
+    </h3>
 
 {% for member in members %}
-    {% if member.active == True %}
+    <!-- {% if member.active == True %} -->
     
     <section>
         <ul>
@@ -18,7 +18,7 @@
         </ul>
     </section>
 
-    {% endif %}
+    <!-- {% endif %} -->
 {% endfor %}
     
 

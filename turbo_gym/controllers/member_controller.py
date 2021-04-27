@@ -5,6 +5,7 @@ from models.member import Member
 
 import repositories.member_repository as member_repository
 import repositories.lesson_repository as lesson_repository
+import repositories.slot_repository as slot_repository
 
 members_blueprint = Blueprint("members", __name__)
 
@@ -26,7 +27,8 @@ def my_classes(id):
 @members_blueprint.route('/members/my-classes/<lesson_id>')
 def class_info(lesson_id):
     lesson = lesson_repository.select(lesson_id)
-    return render_template('/members/class_info.html', lesson = lesson)
+    slots = slot_repository.select_all()
+    return render_template('/members/class_info.html', lesson = lesson, slots = slots)
 
 # NEW
 # gets form for new member 
@@ -71,13 +73,30 @@ def update_member(id):
 
 # QUIT GYM
 # sets member's membership to inactive (active = False) and updates the entry in the database
-@members_blueprint.route('/members/<id>/quit', methods=['POST'])
+@members_blueprint.route('/members/<id>/deactivate', methods=['POST'])
 def deactivate_member(id):
     member = member_repository.select(id)
     member.deactivate_membership()
     member_repository.update(member)
     return redirect('/members')
 
+@members_blueprint.route('/members/<id>/reactivate', methods = ['POST'])
+def reactivate_member(id):
+    member = member_repository.select(id)
+    member.reactivate_membership()
+    member_repository.update(member)
+    return redirect('/members')
 
+@members_blueprint.route('/members/<id>/turbo', methods = ['POST'])
+def activate_turbo(id):
+    member = member_repository.select(id)
+    member.activate_turbo_membership()
+    member_repository.update(member)
+    return redirect('/members')
 
-
+@members_blueprint.route('/members/<id>/deactivate-turbo', methods = ['POST'])
+def deactivate_turbo(id):
+    member = member_repository.select(id)
+    member.deactivate_turbo_membership()
+    member_repository.update(member)
+    return redirect('/members')

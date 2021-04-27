@@ -3,23 +3,23 @@
 {% block content %}
 
 <h1>MEMBERS</h1>
-<h2>
-  <a href="/members/new">JOIN TURBO GYM</a>
-</h2>
+    <h2>
+        <a href="/members/new">JOIN TURBO GYM</a>
+    </h2>
 
 {% for member in members %}
     {% if member.active == True %}
     
-<section>
-    <ul>
-        <li>
-            <a href="/members/{{member.id}}">{{member.first_name}} {{member.last_name}}</a>
-        </li>
-    </ul>
+    <section>
+        <ul>
+            <li>
+                <a href="/members/{{member.id}}">{{member.first_name}} {{member.last_name}}</a>
+            </li>
+        </ul>
+    </section>
 
     {% endif %}
 {% endfor %}
     
-</section>
 
 {% endblock %}

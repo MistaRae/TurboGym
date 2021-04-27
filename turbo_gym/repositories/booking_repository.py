@@ -1,6 +1,7 @@
 from db.run_sql import run_sql
 from models.booking import Booking
 from models.slot import Slot
+from models.member import Member
 
 # CREATE TABLE bookings (
 #     id SERIAL PRIMARY KEY,
@@ -39,26 +40,40 @@ def select_all():
         bookings.append(booking)
     return bookings
 
-def lesson_time(lesson):
-    result = None
-    sql = "SELECT slots.* FROM slots INNER JOIN lessons ON lessons.slots_id = slots.id WHERE id = %s"
-    values = [lesson.id]
-    result = run_sql(sql, values)
-    if result is not None:
-        slot = Slot(slot_num, time_stamp, turbo_slot,)
+def select_members_in_class(lesson):
+    members = []
+    sql = "SELECT members.* FROM bookings INNER JOIN members ON bookings.member_id = members.id WHERE bookings.lesson_id = %s"
+    values = [lesson]
+    results = run_sql(sql, values)
+    for row in results:
+        member = Member(row['first_name'], row['last_name'],row['age'], row['sex'], row['turbo_membership'], row['active'], row['id'])
+        members.append(member)
+    return members
 
 
 
-# def lessons(member):
-#     bookings = []
-#     sql = "SELECT lessons.* FROM lessons INNER JOIN bookings ON bookings.lesson_id = lessons.id WHERE member_id = %s"
-#     values = [member.id]
-#     results = run_sql(sql,values)
+# SQL FOR MEMBERS BOOKED ONTO CLASS:
+# SELECT members.* 
+# FROM bookings 
+# INNER JOIN members 
+# ON bookings.member_id = members.id 
+# WHERE member_id = 69
 
-#     for row in results:
-#         lesson = Lesson(row['class_name'], row['class_type'], row['difficulty'], row['duration'], row['capacity'], row['slot_id'], row['id'])
-#         bookings.append(lesson)
-#     return bookings
+# SELECT lessons.* 
+# FROM bookings 
+# INNER JOIN lessons 
+# ON bookings.lesson_id = lessons.id 
+# WHERE bookings.member_id = 69
+
+
+# def lesson_time(lesson):
+#     result = None
+#     sql = "SELECT slots.* FROM slots INNER JOIN lessons ON lessons.slots_id = slots.id WHERE id = %s"
+#     values = [lesson.id]
+#     result = run_sql(sql, values)
+#     if result is not None:
+#         slot = Slot(slot_num, time_stamp, turbo_slot,)
+
 
 #UPDATE
 def update(booking):

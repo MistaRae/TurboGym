@@ -2,8 +2,12 @@
 
 {% block content %}
 
-<h1>//\\ {{lesson.class_name}} //\\ {{lesson.class_type}}</h1>
-
+<h1>//\\ {{lesson.class_name}} //\\ </h1>
+<h2>{{lesson.class_type}} // {{lesson.difficulty}} // {{lesson.duration}}min // {{lesson.capacity}} // {% for slot in slots %}
+    {% if slot.id == lesson.slot_id %}
+    {{slot.time_stamp}}
+    {% endif %}
+    {% endfor %}</h2>
 <h2><a href="/classes/{{lesson.id}}/update">UPDATE THIS CLASS</a></h2>
 
 <ul>
@@ -12,7 +16,14 @@
             <input type="submit" value="ADD MEMBER TO CLASS">
         </form>
     </li>
-  
+    <h3>MEMBERS BOOKED ONTO CLASS: </h3>
+    {% for member in members %}
+    <p>{{member.first_name}} {{member.last_name}}</p>
+    {% endfor %}
 </ul>
+
+
+    
+
 
 {% endblock %}

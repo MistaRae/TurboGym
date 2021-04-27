@@ -3,6 +3,7 @@ from flask import Flask, render_template, redirect, request, Blueprint
 from models.lesson import Lesson 
 
 import repositories.lesson_repository as lesson_repository
+import repositories.booking_repository as booking_repository
 import repositories.slot_repository as slot_repository
 
 lessons_blueprint = Blueprint("lessons", __name__)
@@ -16,8 +17,10 @@ def lessons():
 
 @lessons_blueprint.route('/classes/<id>')
 def select_lesson(id):
+    members = booking_repository.select_members_in_class(id)
     lesson = lesson_repository.select(id)
-    return render_template("lessons/lesson_info.html", lesson = lesson)
+    slots = slot_repository.select_all()
+    return render_template("lessons/lesson_info.html", lesson = lesson, slots = slots, members = members)
 
 # NEW
 
@@ -50,7 +53,7 @@ def edit_lesson(id):
 
 # UPDATE
 
-#posts form, actions databse
+#posts form, actions database
 @lessons_blueprint.route('/classes/<id>', methods=['POST'])
 def update_lesson(id):
     class_name = request.form['class_name']

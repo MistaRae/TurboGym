@@ -142,7 +142,7 @@ body > section {
 }
 
 body > div {
-    padding-left: 5%;
+    padding-left: 0%;
 }
 
 body > div > form {
@@ -156,8 +156,9 @@ body > div > form {
     flex-direction: column;
 }
 
-body > ul > li {
+body > main > ul > li, a {
     list-style: none;
+    color: grey;
 }
 
 .button {
@@ -170,3 +171,28 @@ body > ul > li {
     display: inline-block;
     font-size: 16px;
   }
+
+.button:hover {
+    transition-duration: 0.3s;
+    color: honeydew;
+}
+
+body > main > img {
+    max-width: 100%;
+    height: auto;
+    padding:0;
+    border: 0;
+}
+
+.new-class {
+    background-image: url(static/images/yoga-class.jpg);
+}
+
+.social {
+    background-color: gold;
+    border-radius: 15px;
+    border-color: black;
+
+}
+
+

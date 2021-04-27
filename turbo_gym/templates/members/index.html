@@ -7,19 +7,19 @@
         <a href="/members/new">ADD NEW MEMBER</a>
     </h2>
 
+<main>
+<img src="static/images/members.jpg" alt="">
 {% for member in members %}
     <!-- {% if member.active == True %} -->
     
-    <section>
         <ul>
             <li>
                 <a href="/members/{{member.id}}">{{member.first_name}} {{member.last_name}}</a>
             </li>
         </ul>
-    </section>
 
     <!-- {% endif %} -->
 {% endfor %}
-    
+</main>
 
 {% endblock %}

@@ -4,8 +4,8 @@
 <h1>//\\ CREATE NEW CLASS //\\</h1>
 <h2>ENTER NEW CLASS DETAILS</h2>
 <div >
-    <form action="/classes" method = 'post' class= "form_container"> NEW CLASS 
-        <label for="class_name">NAME</label>
+    <form action="/classes" method = 'post' class= "form_container"> 
+        <label for="class_name">CLASS NAME</label>
         <input type="text" name="class_name">
         <label for="class_type">CLASS TYPE</label>
         <input type="text" name="class_type">
@@ -23,7 +23,7 @@
             {% endfor %}
         </select>
 
-        <button type="submit">CREATE CLASS</button>
+        <button type="submit" class = "button" >CREATE CLASS</button>
     </form>
 </div>
 {% endblock %}

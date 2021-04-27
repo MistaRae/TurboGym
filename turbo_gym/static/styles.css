@@ -7,6 +7,7 @@ body, a:link {
 body > header {
     background-color: purple;
     
+    
 }
 
 body > header > nav > ul {
@@ -194,5 +195,30 @@ body > main > img {
     border-color: black;
 
 }
+body > aside > h1 {
+    text-shadow: 2px 2px black;
+    position:fixed;
+    top: 100px;
+    right: 20px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    transform: rotate(-25deg);
+    font-family: 'Yellowtail', cursive;
+    color: yellow;
+    font-size: 90pt;
+}
+
+/* body > aside > h1 {
+    position:absolute;
+    top: 8px;
+    right: 16px;
+} */
+
+/* body > aside > h2 {
+    position:absolute;
+    top: 100px;
+    right: 16px;
+} */
 
 

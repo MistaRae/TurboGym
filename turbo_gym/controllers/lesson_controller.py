@@ -42,10 +42,11 @@ def add_lesson():
 
 # EDIT 
 #gets form
-@lessons_blueprint.route("/classes/<id>/edit")
+@lessons_blueprint.route("/classes/<id>/update")
 def edit_lesson(id):
     lesson = lesson_repository.select(id)
-    return render_template('lesson/update.html', lesson = lesson)
+    slots = slot_repository.select_all()
+    return render_template('lessons/update.html', lesson = lesson, slots = slots)
 
 # UPDATE
 
@@ -57,7 +58,8 @@ def update_lesson(id):
     difficulty = request.form['difficulty']
     duration = request.form['duration']
     capacity = request.form['capacity']
-    lesson = Lesson(class_name, class_type, difficulty, duration, capacity, id=id)
+    slot_id = request.form['slot_id']
+    lesson = Lesson(class_name, class_type, difficulty, duration, capacity, slot_id, id)
     lesson_repository.update(lesson)
     return redirect('/classes')
 

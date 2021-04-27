@@ -3,7 +3,11 @@
 {% block content %}
 
 <h1>//\\ EDIT CLASS //\\</h1>
-<h2>EDIT YOUR CLASS DETAILS BELOW</h2>
+<h2>{{lesson.class_name}} // {{lesson.class_type}} // {{lesson.difficulty}} // {{lesson.duration}} // {{lesson.capacity}} // {% for slot in slots %}
+    {% if slot.id == lesson.slot_id %}
+    {{slot.time_stamp}}
+    {% endif %}
+    {% endfor %}</h2>
 <form action="/classes/{{lesson.id}}" method='post'>
     <label for="class_name">CLASS NAME</label>
     <input type="text" name="class_name", id = "class_name">
@@ -13,7 +17,16 @@
     <input type="text" name="difficulty", id = "difficulty">
     <label for="duration">DURATION</label>
     <input type="text" name="duration", id = "duration">
-    <button type="submit">UPDATE YOUR DETAILS</button>
+    <label for="capacity">CAPACITY</label>
+    <input type="text" name="capacity", id = "capacity">
+    <label for="time_slot">TIME SLOT</label>
+        <select name="slot_id">
+            {% for slot in slots %}
+                <option value="{{slot.id}}">{{slot.time_stamp}}</option>
+            {% endfor %}
+        </select>
+
+    <button type="submit">UPDATE CLASS DETAILS</button>
 </form>
 
 {% endblock %}

@@ -3,6 +3,8 @@ from models.booking import Booking
 from models.slot import Slot
 from models.member import Member
 
+import repositories.member_repository as member_repository
+import repositories.lesson_repository as lesson_repository
 # CREATE TABLE bookings (
 #     id SERIAL PRIMARY KEY,
 #     member_id INT REFERENCES members(id),
@@ -36,7 +38,9 @@ def select_all():
     results = run_sql(sql)
 
     for row in results:
-        booking = Booking(row['member_id'], row['lesson_id'], row['id'])
+        member = member_repository.select(row['member_id'])
+        lesson = lesson_repository.select(row['lesson_id'])
+        booking = Booking(member, lesson, row['id'])
         bookings.append(booking)
     return bookings
 
@@ -49,7 +53,7 @@ def select_members_in_class(lesson):
         member = Member(row['first_name'], row['last_name'],row['age'], row['sex'], row['turbo_membership'], row['active'], row['id'])
         members.append(member)
     return members
-
+ 
 
 
 # SQL FOR MEMBERS BOOKED ONTO CLASS:

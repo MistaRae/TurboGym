@@ -4,10 +4,10 @@
 
 <h1>BOOKINGS</h1>
 
-<div>
+<ul>
 {% for booking in bookings %}
         <p>{{booking.member.first_name}} is booked onto {{booking.lesson.class_name}}</p>
 {% endfor %}
-</div>
+</ul>
 
 {% endblock %}

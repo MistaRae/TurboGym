@@ -87,7 +87,7 @@ def update(booking):
 
 # DELETE
 def delete(id):
-    sql = "DELETE * FROM bookings WHERE id = %s"
+    sql = "DELETE FROM bookings WHERE id = %s"
     values = [id]
     run_sql(sql, values)
     
@@ -96,3 +96,4 @@ def delete(id):
 def delete_all():
     sql = "DELETE * FROM bookings"
     run_sql(sql)
+

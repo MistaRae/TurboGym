@@ -4,9 +4,12 @@
 
 <h1>BOOKINGS</h1>
 
-<ul>
+<ul class= "bookings-buttons">
 {% for booking in bookings %}
-        <p>{{booking.member.first_name}} is booked onto {{booking.lesson.class_name}}</p>
+        <p>{{booking.member.first_name}} is booked onto {{booking.lesson.class_name}} // {{booking.lesson.difficulty}}</p>
+        <form action="/bookings/{{booking.id}}/delete" method='post'>
+                <input class="button" type="submit" value="CANCEL">
+        </form>
 {% endfor %}
 </ul>
 

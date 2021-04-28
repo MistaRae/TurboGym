@@ -4,8 +4,8 @@
 
 <h1> //\\ {{member.first_name}} {{member.last_name}} //\\ {{member.age}} // {{member.sex}} // {% if member.turbo_membership == true%} Turbo Member {%endif%}</h1>
 <h2> <a href="/members/{{member.id}}/edit">UPDATE MEMBER DETAILS</a> </h2>
-
-<ul>
+<div id="button-background"> 
+<ul >
     <li>
         <form action="/members/{{member.id}}/turbo" method='post'>
         <button type="submit"class = "button" >ACTIVATE TURBO MEMBERSHIP</button>
@@ -27,7 +27,7 @@
         </form>
     </li>
 </ul>
-
+</div>
 <h3> MEMBER'S CLASSES</h3>
 
 <ul>

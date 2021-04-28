@@ -8,25 +8,26 @@
     {{slot.time_stamp}}
     {% endif %}
     {% endfor %}</h2>
-<form action="/classes/{{lesson.id}}" method='post'>
-    <label for="class_name">CLASS NAME</label>
-    <input type="text" name="class_name", id = "class_name">
-    <label for="class_type">CLASS TYPE</label>
-    <input type="text" name="class_type", id = "class_type">
-    <label for="difficulty">DIFFICULTY</label>
-    <input type="text" name="difficulty", id = "difficulty">
-    <label for="duration">DURATION</label>
-    <input type="text" name="duration", id = "duration">
-    <label for="capacity">CAPACITY</label>
-    <input type="text" name="capacity", id = "capacity">
-    <label for="time_slot">TIME SLOT</label>
-        <select name="slot_id">
-            {% for slot in slots %}
-                <option value="{{slot.id}}">{{slot.time_stamp}}</option>
-            {% endfor %}
-        </select>
+<ul>
+    <form action="/classes/{{lesson.id}}" method='post'>
+        <label for="class_name">CLASS NAME</label>
+        <input type="text" name="class_name", id = "class_name">
+        <label for="class_type">CLASS TYPE</label>
+        <input type="text" name="class_type", id = "class_type">
+        <label for="difficulty">DIFFICULTY</label>
+        <input type="text" name="difficulty", id = "difficulty">
+        <label for="duration">DURATION</label>
+        <input type="text" name="duration", id = "duration">
+        <label for="capacity">CAPACITY</label>
+        <input type="text" name="capacity", id = "capacity">
+        <label for="time_slot">TIME SLOT</label>
+            <select name="slot_id">
+                {% for slot in slots %}
+                    <option value="{{slot.id}}">{{slot.time_stamp}}</option>
+                {% endfor %}
+            </select>
 
-    <button type="submit" class = "button" >UPDATE CLASS DETAILS </button>
-</form>
-
+        <button type="submit" class = "button" >UPDATE CLASS DETAILS </button>
+    </form>
+</ul>
 {% endblock %}

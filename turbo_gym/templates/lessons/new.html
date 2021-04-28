@@ -4,6 +4,7 @@
 <h1>//\\ CREATE NEW CLASS //\\</h1>
 <h2>ENTER NEW CLASS DETAILS</h2>
 <div class="new-class">
+    <img src="{{ url_for('static', filename='images/yoga-2.jpg') }}" alt="">
     <form action="/classes" method = 'post' class= "form_container"> 
         <label for="class_name">CLASS NAME</label>
         <input type="text" name="class_name">

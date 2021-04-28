@@ -6,12 +6,15 @@ body, a:link {
 
 body > header {
     background-color: purple;
-    
-    
 }
 
+body > ul {
+    list-style: none;
+    color: grey;
+}
 body > header > nav > ul {
     padding-top: 10px;
+    padding-bottom: 10px;
     margin: 0;
     list-style: none;
     display: flex;
@@ -166,6 +169,7 @@ body > main > ul > li, a {
     background-color: purple;
     border: none;
     color: gold;
+    margin: 5px;
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
@@ -186,7 +190,9 @@ body > main > img {
 }
 
 .new-class {
-    background-image: url(static/images/yoga-class.jpg);
+    /* background-image: url(images/yoga-class.jpg);
+    background-size: contain auto;
+    background-repeat: no-repeat; */
 }
 
 .social {
@@ -209,16 +215,11 @@ body > aside > h1 {
     font-size: 90pt;
 }
 
-/* body > aside > h1 {
-    position:absolute;
-    top: 8px;
-    right: 16px;
-} */
+body > ul > form {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+}
 
-/* body > aside > h2 {
-    position:absolute;
-    top: 100px;
-    right: 16px;
-} */
 
 

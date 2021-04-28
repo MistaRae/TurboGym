@@ -3,7 +3,8 @@
 {% block content %}
 <h1>//\\ BOOK MEMBER ONTO CLASS //\\</h1>
 <h2> {{lesson.class_name}} // {{lesson.class_type}} // {{lesson.difficulty}} // {% for slot in slots %}{% if slot.id == lesson.slot_id %}{{slot.time_stamp}}{% endif %}{% endfor %} </h2>
-<div >
+<div><img src="static/images/yoga-class.jpg" alt=""></div>
+<ul>  
     <form action="/bookings/new" method = 'post' class= "form_container">MEMBER DETAILS 
         <input type="hidden" name="lesson_id" value = {{lesson.id}}>
         <input type="hidden" name="slot_id" value = {% for slot in slots %}{% if slot.id == lesson.slot_id %} {{slot.id}} {% endif %}{% endfor %}>
@@ -13,8 +14,8 @@
                 <option value="{{member.id}}">{{member.first_name}} {{member.last_name}}</option>
             {% endfor %}
         </select>
-        <button type="submit">ADD MEMBER TO CLASS</button>
+        <button class="button" type="submit">ADD MEMBER TO CLASS</button>
     </form>
-</div>
-{% endblock %}
+</ul> 
+ {% endblock %}
 

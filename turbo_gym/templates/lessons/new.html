@@ -5,20 +5,22 @@
 <h2>ENTER NEW CLASS DETAILS</h2>
 <div class="new-class">
     <img src="{{ url_for('static', filename='images/yoga-2.jpg') }}" alt="">
+</div>
+<ul>
     <form action="/classes" method = 'post' class= "form_container"> 
-        <label for="class_name">CLASS NAME</label>
-        <input type="text" name="class_name">
-        <label for="class_type">CLASS TYPE</label>
-        <input type="text" name="class_type">
-        <label for="difficulty"> DIFFICULTY</label>
-        <input type="text" name="difficulty">
-        <label for="duration"> DURATION</label>
-        <input type="text" name="duration">
-        <label for="capacity">CAPACITY</label>
-        <input type="text" name = "capacity">
+        <label class="label" for="class_name">CLASS NAME</label>
+        <input class="input" type="text" name="class_name" required>
+        <label class="label" for="class_type">CLASS TYPE</label>
+        <input class="input" type="text" name="class_type" required>
+        <label class="label" for="difficulty"> DIFFICULTY</label>
+        <input class="input" type="text" name="difficulty" required>
+        <label class="label" for="duration"> DURATION</label>
+        <input class="input" type="text" name="duration" required>
+        <label class="label" for="capacity">CAPACITY</label>
+        <input class="input" type="text" name = "capacity" required>
 
-        <label for="time_slot">TIME SLOT</label>
-        <select name="slot_id">
+        <label class="label" for="time_slot">TIME SLOT</label>
+        <select class="input" name="slot_id">
             {% for slot in slots %}
                 <option value="{{slot.id}}">{{slot.time_stamp}}</option>
             {% endfor %}
@@ -26,5 +28,6 @@
 
         <button type="submit" class = "button" >CREATE CLASS</button>
     </form>
-</div>
+</ul>
+
 {% endblock %}

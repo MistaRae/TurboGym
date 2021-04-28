@@ -12,6 +12,7 @@ body > ul {
     list-style: none;
     color: grey;
 }
+
 body > header > nav > ul {
     padding-top: 10px;
     padding-bottom: 10px;
@@ -190,9 +191,8 @@ body > main > img {
 }
 
 .new-class {
-    /* background-image: url(images/yoga-class.jpg);
-    background-size: contain auto;
-    background-repeat: no-repeat; */
+    color: grey
+    
 }
 
 .social {
@@ -221,5 +221,13 @@ body > ul > form {
     width: 200px;
 }
 
+.label{
+    margin: 2 px;
+}
 
+.input{
+    margin: 2px;
+    border: grey;
+    border: 1px solid grey;    
+}
 

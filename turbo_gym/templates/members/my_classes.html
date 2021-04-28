@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<h1> //\\ {{member.first_name}} {{member.last_name}} //\\</h1>
+<h1> //\\ {{member.first_name}} {{member.last_name}} //\\ {{member.age}} // {{member.sex}} // {% if member.turbo_membership == true%} Turbo Member {%endif%}</h1>
 <h2> <a href="/members/{{member.id}}/edit">UPDATE MEMBER DETAILS</a> </h2>
 
 <ul>

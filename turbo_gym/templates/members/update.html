@@ -4,16 +4,18 @@
 
 <h1>//\\ UPDATE MEMBER DETAILS //\\</h1>
 <h2>{{member.first_name}} {{member.last_name}}</h2>
+<ul>
 <form action="/members/{{member.id}}" method='post'>
-    <label for="first_name">First Name</label>
-    <input type="text" name="first_name", id = "first_name">
-    <label for="last_name">Last Name</label>
-    <input type="text" name="last_name", id = "last_name">
-    <label for="age">Age</label>
-    <input type="text" name="age", id = "age">
-    <label for="first_name">Sex</label>
-    <input type="text" name="sex", id = "sex">
-    <button type="submit" class = "button" >UPDATE YOUR DETAILS</button>
+    <label class="label" for="first_name">First Name</label>
+    <input class="input" type="text" name="first_name", id = "first_name" required>
+    <label class="label" for="last_name">Last Name</label>
+    <input class="input" type="text" name="last_name", id = "last_name" required>
+    <label class="label" for="age">Age</label>
+    <input class="input" type="text" name="age", id = "age" required>
+    <label class="label" for="first_name">Sex</label>
+    <input class="input" type="text" name="sex", id = "sex" required>
+    <button class="button" type="submit" class = "button" >UPDATE YOUR DETAILS</button>
 </form>
+</ul>
 
 {% endblock %}

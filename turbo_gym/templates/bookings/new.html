@@ -8,8 +8,8 @@
     <form action="/bookings/new" method = 'post' class= "form_container">MEMBER DETAILS 
         <input type="hidden" name="lesson_id" value = {{lesson.id}}>
         <input type="hidden" name="slot_id" value = {% for slot in slots %}{% if slot.id == lesson.slot_id %} {{slot.id}} {% endif %}{% endfor %}>
-        <label for="">SELECT USER</label>
-        <select name="member_id">
+        <label class="label"for="">SELECT USER</label>
+        <select class="input" name="member_id">
             {% for member in members %}
                 <option value="{{member.id}}">{{member.first_name}} {{member.last_name}}</option>
             {% endfor %}

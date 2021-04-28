@@ -168,6 +168,19 @@ body > div > form {
 body > main > ul > li, a {
     list-style: none;
     color: grey;
+    text-transform: uppercase;
+}
+/* body > main > ul > li > a:hover {
+    color: gold;
+    background-color: purple;
+    padding: 5px; */
+
+}
+body > main > ul > li > a:hover {
+    color: gold;
+    background-color: purple;
+    padding: 5px;
+
 }
 
 .button {
@@ -235,21 +248,18 @@ body > ul > form {
     border: 1px solid grey;    
 }
 
-#button-background {
+/* #button-background {
     background-image:url(images/weight-lifter-2.jpg);
     list-style: none;
     border: 0;
     margin: 0;
-}
+} */
 
 body > div > ul {
     margin: 0;
     border: 0;
 }
 
-.bookings-buttons {
-
-}
 
 /* .footer {
     position:fixed;
@@ -257,4 +267,15 @@ body > div > ul {
     bottom: 0;
 } */
 
+/* #bookings-background {
+    background-image: url(images/weight-lifter-2.jpg);
+    max-width: 100%;
+    border: 0;
+    margin: 0;
+} */
 
+body > ul > p {
+    text-transform: uppercase;
+    margin: 0;
+    padding: 0;
+}

@@ -4,7 +4,7 @@
 
 <h1>BOOKINGS</h1>
 
-<ul class= "bookings-buttons">
+<ul class= "bookings-buttons" id="bookings-background">
 {% for booking in bookings %}
         <p>{{booking.member.first_name}} is booked onto {{booking.lesson.class_name}} // {{booking.lesson.difficulty}}</p>
         <form action="/bookings/{{booking.id}}/delete" method='post'>

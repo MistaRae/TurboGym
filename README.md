@@ -24,7 +24,7 @@ psql -d turbo_gym -f db/turbo_gym.sql
 
 SEED THE DATABASE USING THE console.py FILE
 -------------------------------------------
-in Terminal"
+in Terminal:
 
 python3 console.py
 
